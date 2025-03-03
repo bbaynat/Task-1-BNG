@@ -8,35 +8,29 @@ import java.util.List;
 
 public class UserServiceImpl implements UserService{
 
+    UserDaoJDBCImpl userDaoJDBCImpl = new UserDaoJDBCImpl();
+
     public void createUsersTable() throws SQLException {
-        UserDaoJDBCImpl userDaoJDBCImpl = new UserDaoJDBCImpl();
         userDaoJDBCImpl.createUsersTable();
     }
 
     public void dropUsersTable() {
-        UserDaoJDBCImpl userDaoJDBCImpl = new UserDaoJDBCImpl();
         userDaoJDBCImpl.dropUsersTable();
     }
 
     public void saveUser(String name, String lastName, byte age) {
-        UserDaoJDBCImpl userDaoJDBCImpl = new UserDaoJDBCImpl();
         userDaoJDBCImpl.saveUser(name, lastName, age);
-
     }
 
     public void removeUserById(long id) {
-        UserDaoJDBCImpl userDaoJDBCImpl = new UserDaoJDBCImpl();
         userDaoJDBCImpl.removeUserById(id);
-
     }
 
     public List<User> getAllUsers() {
-        UserDaoJDBCImpl userDaoJDBCImpl = new UserDaoJDBCImpl();
         return userDaoJDBCImpl.getAllUsers();
     }
 
     public void cleanUsersTable() {
-        UserDaoJDBCImpl userDaoJDBCImpl = new UserDaoJDBCImpl();
         userDaoJDBCImpl.cleanUsersTable();
 
     }
