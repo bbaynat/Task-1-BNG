@@ -2,15 +2,14 @@ package jm.task.core.jdbc.dao;
 
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.util.Util;
+import lombok.NoArgsConstructor;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@NoArgsConstructor
 public class UserDaoJDBCImpl implements UserDao {
-
-    public UserDaoJDBCImpl() {
-    }
 
     public void createUsersTable() {
         String createTable = """

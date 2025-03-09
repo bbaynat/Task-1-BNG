@@ -1,9 +1,12 @@
 package jm.task.core.jdbc.util;
 
+import lombok.NoArgsConstructor;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+@NoArgsConstructor
 public class UtilProperties {
     private static final Properties PROPERTIES = new Properties();
 
@@ -23,6 +26,4 @@ public class UtilProperties {
         }
     }
 
-    private UtilProperties() {
-    }
 }
