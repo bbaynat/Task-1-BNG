@@ -1,28 +1,28 @@
 package jm.task.core.jdbc.util;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import jm.task.core.jdbc.model.User;
 
+import lombok.NoArgsConstructor;
+import org.hibernate.HibernateException;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+
+@NoArgsConstructor
 public class Util {
-    // реализуйте настройку соеденения с БД
 
-    private static final String URL_KEY = "db.url";
-    private static final String USER_NAME_KEY = "db.user_name";
-    private static final String PASSWORD_KEY = "db.password";
-
-    public Util() {
-    }
-
-    public static Connection open() {
+    public static SessionFactory openHibernate() {
         try {
-            return DriverManager.getConnection(
-                    UtilProperties.getProperty(URL_KEY),
-                    UtilProperties.getProperty(USER_NAME_KEY),
-                    UtilProperties.getProperty(PASSWORD_KEY)
-            );
-        } catch (SQLException e) {
+            Configuration configuration = new Configuration();
+
+            configuration.addAnnotatedClass(User.class);
+
+            return configuration.buildSessionFactory();
+
+        } catch (HibernateException e) {
             throw new RuntimeException(e);
+
         }
     }
+
 }
